@@ -2,7 +2,7 @@
 
 DevOps is a cultural and technical movement that bridges the gap between software development (Dev) and IT operations (Ops). It emphasizes collaboration, automation, continuous integration, continuous delivery, and monitoring throughout the software development lifecycle.
 
-# The Roadmap
+# The Flow to Learn Devops for Aspirants
 
 1. Networking
 2. Linux
@@ -14,52 +14,71 @@ DevOps is a cultural and technical movement that bridges the gap between softwar
 
 # Why the order can be like this ?
 
-1. Networking is the main thing behind System Administration , Cloud Engineering, Devops, SREs.
-   Things to learn :
-   Public vs Private IP
+1. Networking is the main aspect behind System Administration , Cloud Engineering, Devops, SREs.
 
 2. Linux is the backbone of engineering. Everything is built on top of Linux.
    Things to Learn :
-   a) Basic Commands, learning to write in vi,vim,nano editors
-   b) Linux File system
-   c) Ownership control
-   d) User level permissions
-   e) Security ( Passwordless authentication )
-   f) Understand the importance of Cron Job
+   1. Basic Commands, learning to write in vi,vim,nano editors
+   2. Linux File system
+   3. Ownership control
+   4. User level permissions
+   5. Security ( Passwordless authentication )
+   6. Understand the importance of Cron Job
 
 3. Cloud
-   a) Try the networking, linux commands by spinning up an a VM in any cloud under free tier
-   b) Create a new user inside the VM
-   c) Provide the necessary permissions for that
-   d) Try writing a basic script like creating a file and deploying it
-   e) Create a cron job and refer the deployment file in the cronjob
+   1. Try the networking, linux commands by spinning up an a VM in any cloud under free tier
+   2. Create a new user inside the VM
+   3. Provide the necessary permissions for that
+   4. Try writing a basic script like creating a file and deploying it
+   5. Create a cron job and refer the deployment file in the cronjob
 
 4. Docker ( Containerisation )
-   a) Understand VM vs Containers and the importance of Containers in the modern technologies
-   b) Install Docker desktop in your local PC/Laptop
-   c) Learn the docker commands , understand the networking part of it
-   d) Understand the difference between PC's port and container's port
-   e) Create a basic hello-world docker file , build an image out of it and run it as a container. Create an account in docker hub and try to push your image.
-   f) Check the container status, exec into it and check whats happening inside
-   g) Docker Volumes,
+   1. Understand VM vs Containers and the importance of Containers in the modern technologies
+   2. Install Docker desktop in your local PC/Laptop
+   3. Learn the docker commands , understand the networking part of it
+   4. Understand the difference between PC's port and container's port
+   5. Create a basic hello-world docker file , build an image out of it and run it as a container. Create an account in docker hub and try to push your image.
+   6. Check the container status, exec into it and check whats happening inside
+   7. Docker Volumes, Docker networking, Docker compose file -> Understand these
 
 5. Kubernetes ( Container Orchestration )
-   a) Understand the differences between Docker and Kubernetes
-   b) Learn and Understand the Pods, Services,Replicasets, Deployments which are basics of Kubernetes
-   c) Try deploying a basic nginx pod using imperative commands by running Kubernetes via Minikube, K3s, Kind etc.
-   d) Create a yaml file and deploy a deployment with multiple replicas
-   e) Create a service file and expose it via ClusterIP or NodePort service type
+   1. Understand the differences between Docker and Kubernetes
+   2. Learn and Understand the Pods, Services,Replicasets, Deployments which are basics of Kubernetes
+   3. Try deploying a basic nginx pod using imperative commands by running Kubernetes via Minikube, K3s, Kind etc.
+   4. Create a yaml file and deploy a deployment with multiple replicas
+   5. Create a service file and expose it via ClusterIP or NodePort service type
 
 6. CICD
-   a) Understand the importance of CICD, learn the different stages out of it
-   b) Choose one tool and start writing a basic pipeline
-   c) Try running the pipeline and check the status of it
+   1. Understand the importance of CICD, learn the different stages out of it
+   2. Choose one tool and start writing a basic pipeline
+   3. Try running the pipeline and check the status of it
 
    The reason why I chose CICD after Docker and Kubernetes because that can be implemented in the CICD part. If you know the implementation part of Docker and Kubernetes, the automation can be included in CICD part.
 
 7. Terraform ( IAC)
+   1. Understand what is IAC and how it helps in maintaining the infra via code
+   2. Understand the terraform lifecycle and learn the commands
+   3. Try deploying a basic VM of any cloud using terraform
+   4. Cleanup the resources after implementing
 
-   a) Understand what is IAC and how it helps in maintaining the infra via code
-   b) Understand the terraform lifecycle and learn the commands
-   c) Try deploying a basic VM of any cloud using terraform
-   d) Cleanup the resources after implementing
+   People should start doing automations only after understanding it in the manual way, dont straight away do the automation first.
+   Without understanding the flow of creating the resources in the manual way, you won't understand it using Terraform
+
+   Note: Learn the Git commands in between and understand the git workflow as well.
+
+# Techstack of this project
+
+1. Frontend React
+2. Backend Node
+3. DB - Postgres
+
+# The Steps to implement as Prerequisite
+
+-> Install the Node,npm and Postgres service in your respective PCs ( can be done in free tier VMs as well )
+-> Try deploying a basic todo app ( generate code using AI ) and then install the dependencies in package.json
+-> Check the yarn commmands ( can use npm as well )
+-> Make it run and expose it on a port
+-> Check the page in the web browser ( localhost:3000 or whichever port you gave )
+-> Install pm2 and check how it runs the process in the background
+-> Try connecting the frontend, backend and database if possible ( we will doing it anyway in the project )
+-> Once you succeed this at the server level, then containerise the App, deploy it in Kubernetes , automate those as per requirements
