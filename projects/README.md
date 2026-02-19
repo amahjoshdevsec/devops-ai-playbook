@@ -379,9 +379,3 @@ alias k=kubectl
 ```bash
 terraform destroy --auto-approve
 ```
-=======
-# Cleanup all the resources
-
-```bash
-terraform destroy --auto-approve
-```
