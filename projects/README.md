@@ -84,7 +84,7 @@ This guide outlines the steps to deploy the boutique microservices application o
 |---------|------|------|
 | **Frontend** | 3000 (ext) → 80 (int) | React UI - User interface for the boutique application |
 | **Gateway** | 3001 | API Gateway - Routes requests to backend services, handles load balancing |
-| **Auth** | 3002 | Authentication - Login, register, JWT token management |
+| **Auth** | 3002 | Authentication - Login, register |
 | **Product Service** | 3003 | Product Catalog - Product listings, inventory management |
 | **Order Service** | 3004 | Order Processing - Cart, checkout, order placement |
 | **Orders** | 3005 | Order Management - Order history, tracking, management |
