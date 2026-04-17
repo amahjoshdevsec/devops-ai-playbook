@@ -254,12 +254,15 @@ alias k=kubectl
 
 ## Step 5: Update Image Tags
 
-1. Go to any one ECR repository in the AWS account after the pipeline succeeds and copy the tag of any one image ( tag is the commit ID )
-2. Update the image tag in the deployment files:
-   - `gitops/k8s/backend/` - for all backend services ( the account ID, region changes because right now the manifest file has my ID and region)
-   - `gitops/k8s/frontend/` - for frontend service
+The CI pipeline auto-updates image tags after every push. For the first manual deployment:
 
-Paste the same tag in all service deployments.
+1. After the pipeline succeeds, go to any ECR repository and copy the image tag (it is the commit SHA)
+2. In each manifest under `gitops/k8s/backend/` and `gitops/k8s/frontend/`, replace the placeholder values:
+   - `<AWS_ACCOUNT_ID>` → your 12-digit AWS account ID
+   - `<AWS_REGION>` → your region (e.g. `us-east-1`)
+   - The image tag at the end of each image URI → the commit SHA from ECR
+
+Paste the same tag across all service deployments.
 
 ---
 
