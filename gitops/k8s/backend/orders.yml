@@ -42,7 +42,8 @@ spec:
   selector:
     app: orders
   ports:
-    - protocol: TCP
+    - name: http
+      protocol: TCP
       port: 3005
       targetPort: 3005
   type: ClusterIP
