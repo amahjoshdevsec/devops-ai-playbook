@@ -5,8 +5,10 @@ __pycache__/
 *.so
 .Python
 venv/
+.venv/
 env/
 ENV/
+
 
 # IDEs
 .vscode/
@@ -34,3 +36,6 @@ Thumbs.db
 
 # Environment variables
 .env
+
+.streamlit/credentials.toml
+**/.streamlit/credentials.toml

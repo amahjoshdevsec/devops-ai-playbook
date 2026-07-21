@@ -39,7 +39,7 @@ echo ""
 # =============================================================================
 echo "[0/3] Pre-flight checks..."
 
-for FUNC in aiops-fetch-logs aiops-fetch-metrics aiops-fetch-health; do
+for FUNC in aiops-fetch-logs aiops-fectch-metrics aiops-fectch-health; do
   if ! aws lambda get-function --function-name "$FUNC" --region "$REGION" &>/dev/null; then
     echo "  ✗ Lambda '$FUNC' not found in $REGION"
     echo "    Create it on the AWS Console first, then re-run this script."
@@ -63,7 +63,7 @@ echo "  ✓ IAM role: $AGENT_ROLE_NAME"
 echo ""
 echo "[1/3] Configuring Lambda functions..."
 
-for FUNC in aiops-fetch-logs aiops-fetch-metrics aiops-fetch-health; do
+for FUNC in aiops-fetch-logs aiops-fectch-metrics aiops-fectch-health; do
   aws lambda update-function-configuration \
     --function-name "$FUNC" \
     --timeout 30 \
@@ -75,7 +75,7 @@ done
 echo ""
 echo "  Adding Bedrock invoke permissions..."
 
-for FUNC in aiops-fetch-logs aiops-fetch-metrics aiops-fetch-health; do
+for FUNC in aiops-fetch-logs aiops-fectch-metrics aiops-fectch-health; do
   aws lambda add-permission \
     --function-name "$FUNC" \
     --statement-id "AllowBedrockInvoke" \
@@ -132,7 +132,7 @@ fi
 echo ""
 echo "[3/3] Adding action groups and preparing agent..."
 
-python3 - <<PYEOF
+"${PYTHON:-python3}" - <<PYEOF
 import boto3, json, sys
 
 region = "$REGION"
@@ -151,13 +151,13 @@ action_groups = [
     },
     {
         "name": "fetch_metrics",
-        "func": "aiops-fetch-metrics",
+        "func": "aiops-fectch-metrics",
         "schema": "fetch_metrics.json",
         "desc": "Retrieve CloudWatch performance metrics (CPU, memory, latency, error rates)",
     },
     {
         "name": "fetch_service_health",
-        "func": "aiops-fetch-health",
+        "func": "aiops-fectch-health",
         "schema": "fetch_health.json",
         "desc": "Check live health status of EKS cluster, node groups, and crashing pods",
     },
